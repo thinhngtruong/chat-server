@@ -52,3 +52,4 @@ io.on('connection', function(socket) {
 
 app.get('/', (req, res) => {
     res.send("Home page. Server running okay.")
+})
