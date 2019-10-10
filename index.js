@@ -39,13 +39,14 @@ io.on('connection', function(socket) {
             io.sockets.emit('updateUserList', userOnline);// gửi danh sách user dang online
         }
     })
-    socket.on("typing",function(){
-        var s = socket.Username + ": Đang nhập văn bản"
-        socket.broadcast.emit("typing",s)
+    socket.on("typing", data => {
+        var s = data.user + " đang nhập văn bản"
+        socket.broadcast.emit("dangnhap",s)
     })
+
     socket.on("stop-typing",function(){
-        s=""
-        io.sockets.emit("stop-typing",s)
+        var s=""
+        socket.broadcast.emit("dungnhap",s)
     })
 
 });
